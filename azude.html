@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Azure DevOps Style Workflow</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body{
+      background:#f4f5f7;
+      color:#172b4d;
+      overflow-x:auto;
+    }
+
+    .topbar{
+      height:60px;
+      background:#0078d4;
+      color:white;
+      display:flex;
+      align-items:center;
+      padding:0 25px;
+      font-size:20px;
+      font-weight:600;
+      box-shadow:0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .board{
+      display:flex;
+      gap:20px;
+      padding:25px;
+      min-height:calc(100vh - 60px);
+      align-items:flex-start;
+    }
+
+    .column{
+      min-width:320px;
+      max-width:320px;
+      background:#ebecf0;
+      border-radius:10px;
+      padding:15px;
+      box-shadow:0 2px 6px rgba(0,0,0,0.08);
+    }
+
+    .column-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:15px;
+    }
+
+    .column-title{
+      font-size:16px;
+      font-weight:700;
+      color:#172b4d;
+    }
+
+    .count{
+      background:#dfe1e6;
+      color:#42526e;
+      border-radius:20px;
+      padding:4px 10px;
+      font-size:12px;
+      font-weight:600;
+    }
+
+    .card{
+      background:white;
+      border-radius:8px;
+      padding:14px;
+      margin-bottom:14px;
+      box-shadow:0 1px 4px rgba(0,0,0,0.08);
+      border-left:5px solid #0078d4;
+      transition:0.2s;
+    }
+
+    .card:hover{
+      transform:translateY(-2px);
+      box-shadow:0 6px 18px rgba(0,0,0,0.12);
+    }
+
+    .card-id{
+      font-size:12px;
+      color:#5e6c84;
+      margin-bottom:6px;
+      font-weight:600;
+    }
+
+    .card-title{
+      font-size:15px;
+      font-weight:700;
+      margin-bottom:10px;
+      color:#172b4d;
+    }
+
+    .card ul{
+      margin-left:18px;
+    }
+
+    .card li{
+      font-size:13px;
+      margin-bottom:6px;
+      line-height:1.4;
+      color:#42526e;
+    }
+
+    .tag{
+      display:inline-block;
+      margin-top:10px;
+      padding:5px 10px;
+      border-radius:20px;
+      font-size:11px;
+      font-weight:700;
+      color:white;
+    }
+
+    .blue{ background:#0078d4; }
+    .green{ background:#107c10; }
+    .orange{ background:#ff8c00; }
+    .red{ background:#d13438; }
+    .purple{ background:#5c2d91; }
+
+    .dod{
+      border-left-color:#107c10;
+    }
+
+    .blocked{
+      border-left-color:#d13438;
+    }
+
+    .uat{
+      border-left-color:#5c2d91;
+    }
+
+    .deploy{
+      border-left-color:#ff8c00;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="topbar">
+    Azure DevOps Style - Agile Workflow
+  </div>
+
+  <div class="board">
+
+    <!-- TO DO -->
+    <div class="column">
+      <div class="column-header">
+        <div class="column-title">TO DO</div>
+        <div class="count">1</div>
+      </div>
+
+      <div class="card">
+        <div class="card-id">US-1001</div>
+        <div class="card-title">User Story</div>
+
+        <ul>
+          <li>Regras de Negócio</li>
+          <li>Critérios de Aceite</li>
+        </ul>
+
+        <span class="tag blue">BACKLOG</span>
+      </div>
+    </div>
+
+    <!-- DEVELOPMENT -->
+    <div class="column">
+      <div class="column-header">
+        <div class="column-title">IN DEVELOPMENT</div>
+        <div class="count">6</div>
+      </div>
+
+      <div class="card">
+        <div class="card-id">DEV-01</div>
+        <div class="card-title">Entendimento</div>
+        <span class="tag blue">DEV</span>
+      </div>
+
+      <div class="card">
+        <div class="card-id">DEV-02</div>
+        <div class="card-title">Planejamento</div>
+        <span class="tag blue">DEV</span>
+      </div>
+
+      <div class="card">
+        <div class="card-id">DEV-03</div>
+        <div class="card-title">Execução</div>
+        <span class="tag blue">CODING</span>
+      </div>
+
+      <div class="card">
+        <div class="card-id">DEV-04</div>
+        <div class="card-title">Code Review</div>
+        <span class="tag purple">PR REVIEW</span>
+      </div>
+
+      <div class="card">
+        <div class="card-id">DEV-05</div>
+        <div class="card-title">Dev Done</div>
+        <span class="tag green">DONE</span>
+      </div>
+
+      <div class="card blocked">
+        <div class="card-id">DEV-06</div>
+        <div class="card-title">Blocked</div>
+
+        <ul>
+          <li>Dependência externa</li>
+          <li>Ambiente indisponível</li>
+          <li>Dúvida de negócio</li>
+          <li>Aguardando acesso</li>
+        </ul>
+
+        <span class="tag red">BLOCKED</span>
+      </div>
+    </div>
+
+    <!-- READY FOR QA -->
+    <div class="column">
+      <div class="column-header">
+        <div class="column-title">READY FOR QA</div>
+        <div class="count">1</div>
+      </div>
+
+      <div class="card">
+        <div class="card-id">QA-READY-01</div>
+        <div class="card-title">Pronto para Testes</div>
+
+        <ul>
+          <li>Desenvolvimento concluído</li>
+          <li>Merge realizado</li>
+          <li>Ambiente disponível</li>
+        </ul>
+
+        <span class="tag orange">READY</span>
+      </div>
+    </div>
+
+    <!-- QA -->
+    <div class="column">
+      <div class="column-header">
+        <div class="column-title">IN QA</div>
+        <div class="count">7</div>
+      </div>
+
+      <div class="card">
+        <div class="card-id">QA-01</div>
+        <div class="card-title">Entendimento</div>
+        <span class="tag blue">QA</span>
+      </div>
+
+      <div class="card">
+        <div class="card-id">QA-02</div>
+        <div class="card-title">Planejamento dos Testes</div>
+        <span class="tag blue">TEST PLAN</span>
+      </div>
+
+      <div class="card">
+        <div class="card-id">QA-03</div>
+        <div class="card-title">Execução dos Testes</div>
+        <span class="tag blue">TESTING</span>
+      </div>
+
+      <div class="card blocked">
+        <div class="card-id">QA-04</div>
+        <div class="card-title">QA Failed</div>
+
+        <ul>
+          <li>Retorna para Development</li>
+          <li>Rework / Bug Fix</li>
+        </ul>
+
+        <span class="tag red">FAILED</span>
+      </div>
+
+      <div class="card">
+        <div class="card-id">QA-05</div>
+        <div class="card-title">Retest</div>
+        <span class="tag orange">RETEST</span>
+      </div>
+
+      <div class="card">
+        <div class="card-id">QA-06</div>
+        <div class="card-title">QA Approved</div>
+        <span class="tag green">APPROVED</span>
+      </div>
+
+      <div class="card">
+        <div class="card-id">QA-07</div>
+        <div class="card-title">QA Done</div>
+        <span class="tag green">DONE</span>
+      </div>
+    </div>
+
+    <!-- UAT -->
+    <div class="column">
+      <div class="column-header">
+        <div class="column-title">UAT</div>
+        <div class="count">3</div>
+      </div>
+
+      <div class="card uat">
+        <div class="card-id">UAT-01</div>
+        <div class="card-title">Validação de Negócio</div>
+
+        <ul>
+          <li>Cliente</li>
+          <li>Product Owner</li>
+          <li>Usuário de negócio</li>
+          <li>Área solicitante</li>
+        </ul>
+
+        <span class="tag purple">BUSINESS</span>
+      </div>
+
+      <div class="card uat">
+        <div class="card-id">UAT-02</div>
+        <div class="card-title">Objetivo</div>
+
+        <ul>
+          <li>Validar regras de negócio</li>
+          <li>Validar comportamento funcional</li>
+          <li>Aprovação do negócio</li>
+        </ul>
+
+        <span class="tag purple">VALIDATION</span>
+      </div>
+
+      <div class="card uat">
+        <div class="card-id">UAT-03</div>
+        <div class="card-title">Resultado</div>
+
+        <ul>
+          <li>UAT Failed</li>
+          <li>Retorna para Development</li>
+          <li>UAT Approved</li>
+        </ul>
+
+        <span class="tag purple">APPROVAL</span>
+      </div>
+    </div>
+
+    <!-- DEPLOY -->
+    <div class="column">
+      <div class="column-header">
+        <div class="column-title">READY FOR DEPLOY</div>
+        <div class="count">2</div>
+      </div>
+
+      <div class="card deploy">
+        <div class="card-id">DEPLOY-01</div>
+        <div class="card-title">Condições</div>
+
+        <ul>
+          <li>DEV aprovado</li>
+          <li>QA aprovado</li>
+          <li>UAT aprovado</li>
+        </ul>
+
+        <span class="tag orange">RELEASE</span>
+      </div>
+
+      <div class="card deploy">
+        <div class="card-id">DEPLOY-02</div>
+        <div class="card-title">Cenários comuns</div>
+
+        <ul>
+          <li>Deploy manual</li>
+          <li>Janela de publicação</li>
+          <li>DevOps/SRE</li>
+          <li>Aprovação de release</li>
+        </ul>
+
+        <span class="tag orange">DEPLOY</span>
+      </div>
+    </div>
+
+    <!-- DONE -->
+    <div class="column">
+      <div class="column-header">
+        <div class="column-title">DONE</div>
+        <div class="count">2</div>
+      </div>
+
+      <div class="card">
+        <div class="card-id">DONE-01</div>
+        <div class="card-title">Entrega Finalizada</div>
+
+        <ul>
+          <li>Deploy realizado</li>
+          <li>Fluxo concluído</li>
+          <li>Entrega publicada</li>
+        </ul>
+
+        <span class="tag green">DONE</span>
+      </div>
+
+      <div class="card dod">
+        <div class="card-id">DoD-01</div>
+        <div class="card-title">Definition of Done</div>
+
+        <ul>
+          <li>Code Review aprovado</li>
+          <li>QA aprovado</li>
+          <li>UAT aprovado</li>
+          <li>Deploy realizado</li>
+          <li>Sem bugs críticos</li>
+          <li>Documentação atualizada</li>
+        </ul>
+
+        <span class="tag green">QUALITY</span>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
