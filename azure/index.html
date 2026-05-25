@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Workflow Scrum - Azure DevOps Style</title>
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -63,9 +64,7 @@
             <div class="sub-task">Entendimento</div>
             <div class="sub-task">Planejamento</div>
             <div class="sub-task">Execução</div>
-            <div class="sub-task">Implementação</div>
             <div class="sub-task">Code Review</div>
-            <div class="sub-task">Dev Done</div>
           </div>
 
           <div class="sub-task-column">
@@ -93,18 +92,30 @@
         <div class="card-id">QA-READY-01</div>
         <div class="card-title">Pronto para QA</div>
 
-        <div class="task-grid">
-          <div class="task">Merge realizado</div>
-          <div class="task">Build validado</div>
-          <div class="task">Deploy homologação</div>
-          <div class="task done">Ambiente OK</div>
+        <div class="dev-board">
+
+          <div class="sub-task-column">
+            <div class="sub-task-title">TO DO</div>
+            <div class="sub-task">Merge</div>
+            <div class="sub-task">Build</div>
+            <div class="sub-task">Deploy-QA</div>
+          </div>
+
+          <div class="sub-task-column">
+            <div class="sub-task-title">DOING</div>
+          </div>
+
+          <div class="sub-task-column">
+            <div class="sub-task-title">DONE</div>
+          </div>
+
         </div>
 
-        <span class="tag orange">READY</span>
+        <span class="tag purple">SPRINT ACTIVE</span>
       </div>
     </div>
 
-    <!-- IN QA (AGORA MINI KANBAN) -->
+    <!-- IN QA -->
     <div class="column">
       <div class="column-header">
         <div class="column-title">IN QA</div>
@@ -121,10 +132,7 @@
             <div class="sub-task-title">TO DO</div>
             <div class="sub-task">Entendimento</div>
             <div class="sub-task">Planejamento</div>
-            <div class="sub-task">Execução QA</div>
-            <div class="sub-task">Testes Manuais</div>
-            <div class="sub-task">QA Approved</div>
-            <div class="sub-task">QA Done</div>
+            <div class="sub-task">Execução</div>
           </div>
 
           <div class="sub-task-column">
@@ -152,14 +160,26 @@
         <div class="card-id">UAT-110</div>
         <div class="card-title">User Acceptance Test</div>
 
-        <div class="task-grid">
-          <div class="task">Cliente</div>
-          <div class="task">PO</div>
-          <div class="task">Negócio</div>
-          <div class="task done">UAT Approved</div>
+        <div class="dev-board">
+
+          <div class="sub-task-column">
+            <div class="sub-task-title">TO DO</div>
+            <div class="sub-task">Agendamento</div>
+            <div class="sub-task">Execução</div>
+            <div class="sub-task">Feedback</div>
+          </div>
+
+          <div class="sub-task-column">
+            <div class="sub-task-title">DOING</div>
+          </div>
+
+          <div class="sub-task-column">
+            <div class="sub-task-title">DONE</div>
+          </div>
+
         </div>
 
-        <span class="tag purple">BUSINESS</span>
+        <span class="tag cyan">TESTING</span>
       </div>
     </div>
 
@@ -174,40 +194,32 @@
         <div class="card-id">REL-400</div>
         <div class="card-title">Release</div>
 
-        <div class="task-grid">
-          <div class="task deploy">Deploy Manual</div>
-          <div class="task deploy">Janela Release</div>
-          <div class="task deploy">DevOps/SRE</div>
-          <div class="task done">Release Approved</div>
+        <div class="dev-board">
+
+          <div class="sub-task-column">
+            <div class="sub-task-title">TO DO</div>
+            <div class="sub-task">Agendamento</div>
+            <div class="sub-task">Execução</div>
+            <div class="sub-task">Monitoramento</div>
+            <div class="sub-task">Feedback</div>
+          </div>
+
+          <div class="sub-task-column">
+            <div class="sub-task-title">DOING</div>
+          </div>
+
+          <div class="sub-task-column">
+            <div class="sub-task-title">DONE</div>
+          </div>
+
         </div>
 
-        <span class="tag orange">DEPLOY</span>
+        <span class="tag cyan">TESTING</span>
       </div>
     </div>
 
-    <!-- DONE -->
-    <div class="column">
-      <div class="column-header">
-        <div class="column-title">DONE</div>
-        <div class="count">1</div>
-      </div>
-
-      <div class="card">
-        <div class="card-id">DONE-999</div>
-        <div class="card-title">Entrega Finalizada</div>
-
-        <div class="task-grid">
-          <div class="task done">Deploy realizado</div>
-          <div class="task done">Monitoramento OK</div>
-          <div class="task done">Sprint concluída</div>
-          <div class="task done">Entrega publicada</div>
-        </div>
-
-        <span class="tag green">DONE</span>
-      </div>
-    </div>
-
-  </div>
+</div>
 
 </body>
+
 </html>
