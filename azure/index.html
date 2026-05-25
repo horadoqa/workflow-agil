@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Workflow Scrum - Azure DevOps Style</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" />
+  <script src="./script.js"></script>
 </head>
 
 <body>
@@ -26,23 +28,36 @@
 
   <div class="board">
 
-    <!-- TO DO -->
-    <div class="column">
+    <!-- User Story -->
+     <div class="column">
       <div class="column-header">
-        <div class="column-title">TO DO</div>
+        <div class="column-title">USER STORY</div>
         <div class="count">1</div>
       </div>
 
       <div class="card">
-        <div class="card-id">US-1001</div>
-        <div class="card-title">User Story</div>
+        <div class="card-id">ID: US-1</div>
+        <div class="card-title">USER STORY</div>
 
-        <div class="task-grid">
-          <div class="task">Regras de Negócio</div>
-          <div class="task">Critérios de Aceite</div>
+        <div class="dev-board">
+
+          <div class="sub-task-column">
+            <div class="sub-task-title">REGRAS DE NEGÓCIO</div>
+            <textarea name="Regras de Negócio" id=""></textarea>
+          </div>
+
+          <div class="sub-task-column">
+            <div class="sub-task-title">CRITÉRIOS DE ACEITE</div>
+            <textarea name="Critérios de Aceite" id=""></textarea>
+          </div>
+
+          <div class="sub-task-column">
+            <div class="sub-task-title">OBSERVAÇÕES</div>
+            <textarea name="Observações" id=""></textarea>
+          </div>
+
         </div>
 
-        <span class="tag blue">BACKLOG</span>
       </div>
     </div>
 
@@ -61,10 +76,10 @@
 
           <div class="sub-task-column">
             <div class="sub-task-title">TO DO</div>
-            <div class="sub-task">Entendimento</div>
-            <div class="sub-task">Planejamento</div>
-            <div class="sub-task">Execução</div>
-            <div class="sub-task">Code Review</div>
+            <div class="sub-task" draggable="true">Entendimento</div>
+            <div class="sub-task" draggable="true">Planejamento</div>
+            <div class="sub-task" draggable="true">Execução</div>
+            <div class="sub-task" draggable="true">Code Review</div>
           </div>
 
           <div class="sub-task-column">
@@ -77,48 +92,14 @@
 
         </div>
 
-        <span class="tag purple">SPRINT ACTIVE</span>
+        <!-- <span class="tag purple">SPRINT ACTIVE</span> -->
       </div>
     </div>
 
-    <!-- READY FOR QA -->
+    <!-- TESTING -->
     <div class="column">
       <div class="column-header">
-        <div class="column-title">READY FOR QA</div>
-        <div class="count">1</div>
-      </div>
-
-      <div class="card">
-        <div class="card-id">QA-READY-01</div>
-        <div class="card-title">Pronto para QA</div>
-
-        <div class="dev-board">
-
-          <div class="sub-task-column">
-            <div class="sub-task-title">TO DO</div>
-            <div class="sub-task">Merge</div>
-            <div class="sub-task">Build</div>
-            <div class="sub-task">Deploy-QA</div>
-          </div>
-
-          <div class="sub-task-column">
-            <div class="sub-task-title">DOING</div>
-          </div>
-
-          <div class="sub-task-column">
-            <div class="sub-task-title">DONE</div>
-          </div>
-
-        </div>
-
-        <span class="tag purple">SPRINT ACTIVE</span>
-      </div>
-    </div>
-
-    <!-- IN QA -->
-    <div class="column">
-      <div class="column-header">
-        <div class="column-title">IN QA</div>
+        <div class="column-title">TESTING</div>
         <div class="count">1</div>
       </div>
 
@@ -130,9 +111,9 @@
 
           <div class="sub-task-column">
             <div class="sub-task-title">TO DO</div>
-            <div class="sub-task">Entendimento</div>
-            <div class="sub-task">Planejamento</div>
-            <div class="sub-task">Execução</div>
+            <div class="sub-task" draggable="true">Entendimento</div>
+            <div class="sub-task" draggable="true">Planejamento</div>
+            <div class="sub-task" draggable="true">Execução</div>
           </div>
 
           <div class="sub-task-column">
@@ -145,7 +126,7 @@
 
         </div>
 
-        <span class="tag cyan">TESTING</span>
+        <!-- <span class="tag cyan">TESTING</span> -->
       </div>
     </div>
 
@@ -164,9 +145,9 @@
 
           <div class="sub-task-column">
             <div class="sub-task-title">TO DO</div>
-            <div class="sub-task">Agendamento</div>
-            <div class="sub-task">Execução</div>
-            <div class="sub-task">Feedback</div>
+            <div class="sub-task" draggable="true">Agendamento</div>
+            <div class="sub-task" draggable="true">Execução</div>
+            <div class="sub-task" draggable="true">Feedback</div>
           </div>
 
           <div class="sub-task-column">
@@ -179,7 +160,7 @@
 
         </div>
 
-        <span class="tag cyan">TESTING</span>
+        <!-- <span class="tag cyan">TESTING</span> -->
       </div>
     </div>
 
@@ -198,10 +179,10 @@
 
           <div class="sub-task-column">
             <div class="sub-task-title">TO DO</div>
-            <div class="sub-task">Agendamento</div>
-            <div class="sub-task">Execução</div>
-            <div class="sub-task">Monitoramento</div>
-            <div class="sub-task">Feedback</div>
+            <div class="sub-task" draggable="true">Agendamento</div>
+            <div class="sub-task" draggable="true">Execução</div>
+            <div class="sub-task" draggable="true">Monitoramento</div>
+            <div class="sub-task" draggable="true">Feedback</div>
           </div>
 
           <div class="sub-task-column">
@@ -214,12 +195,10 @@
 
         </div>
 
-        <span class="tag cyan">TESTING</span>
+        <!-- <span class="tag cyan">TESTING</span> -->
       </div>
     </div>
 
 </div>
-
 </body>
-
 </html>
