@@ -68,3 +68,27 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const textareas = document.querySelectorAll("textarea");
+
+  textareas.forEach(textarea => {
+
+    // Carrega valor salvo
+    textarea.value =
+      localStorage.getItem(textarea.id) || "";
+
+    // Salva automaticamente
+    textarea.addEventListener("input", () => {
+
+      localStorage.setItem(
+        textarea.id,
+        textarea.value
+      );
+
+    });
+
+  });
+
+});

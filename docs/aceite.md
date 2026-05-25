@@ -119,14 +119,3 @@ Abaixo estão **critérios de aceite (Acceptance Criteria)** bem estruturados pa
 **And** impedir injeção de scripts ou SQL maliciosos
 
 ---
-
-# 📌 Se quiser evoluir isso ainda mais
-
-Posso transformar esse conteúdo em:
-
-* 🟦 **Work Item Azure DevOps pronto (User Story formatada)**
-* 🧪 **Casos de teste QA completos**
-* 🚀 **Checklist de pipeline de segurança (CI/CD)**
-* 💻 **Implementação em HTML + backend real (Node, .NET ou Java)**
-
-Só me diga o próximo nível.
