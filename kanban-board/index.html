@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kanban Board - Sistema de Autenticação</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;500;700&display=swap" />
+</head>
+<body>
+
+  <div class="header">
+    <h1>Workflow Scrum - Horadoqa DevOps Style</h1>
+    <p>Workflow profissional para gerenciamento ágil de projetos</p>
+
+    <div class="scrum-info">
+      <div class="scrum-badge">Sprint Planning</div>
+      <div class="scrum-badge">Daily Scrum</div>
+      <div class="scrum-badge">Sprint Review</div>
+      <div class="scrum-badge">Retrospective</div>
+      <div class="scrum-badge">Lead Time</div>
+      <div class="scrum-badge">Throughput</div>
+    </div>
+
+    <button id="reset-board">🔄 Reset Board</button>
+    <button id="load-sample">📋 Carregar Exemplo</button>
+  </div>
+
+  <div class="board">
+
+    <!-- USER STORY -->
+    <div class="column">
+      <div class="column-header">
+        <div class="column-title">USER STORY</div>
+        <div class="count" id="count-userstory">1</div>
+      </div>
+
+      <div class="card" id="card-userstory-1">
+        <div class="card-id">ID: 1</div>
+        <div class="card-title">USER STORY</div>
+
+        <div class="dev-board">
+          <div class="sub-task-column">
+            <div class="sub-task-title">REGRAS DE NEGÓCIO</div>
+            <textarea id="businessRules" placeholder="Digite as regras de negócio..."></textarea>
+          </div>
+
+          <div class="sub-task-column">
+            <div class="sub-task-title">CRITÉRIOS DE ACEITE</div>
+            <textarea id="acceptanceCriteria" placeholder="Digite os critérios de aceite..."></textarea>
+          </div>
+
+          <div class="sub-task-column">
+            <div class="sub-task-title">OBSERVAÇÕES</div>
+            <textarea id="observations" placeholder="Digite as observações..."></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- IN DEVELOPMENT -->
+    <div class="column">
+      <div class="column-header">
+        <div class="column-title">IN DEVELOPMENT</div>
+        <div class="count" id="count-development">2</div>
+      </div>
+
+      <div class="card" id="card-development-1">
+        <div class="card-id">ID: 1</div>
+        <div class="card-title">Desenvolvimento</div>
+
+        <div class="dev-board">
+          <div class="sub-task-column" id="dev-todo" data-column="dev-todo">
+            <div class="sub-task-title">TO DO</div>
+
+            <div class="sub-task" draggable="true" id="task-dev-entendimento" data-flow="development">
+              <div class="task-title">Entendimento</div>
+              <textarea placeholder="Digite detalhes da task..."></textarea>
+              <button class="blocked-btn">🚫 Blocked</button>
+              <div class="blocked-reason">
+                <label>Motivo do bloqueio</label>
+                <textarea class="blocked-text" placeholder="Explique por que esta task está bloqueada..."></textarea>
+              </div>
+            </div>
+
+            <div class="sub-task" draggable="true" id="task-dev-planejamento" data-flow="development">
+              <div class="task-title">Planejamento</div>
+              <textarea placeholder="Digite detalhes da task..."></textarea>
+              <button class="blocked-btn">🚫 Blocked</button>
+              <div class="blocked-reason">
+                <label>Motivo do bloqueio</label>
+                <textarea class="blocked-text" placeholder="Explique por que esta task está bloqueada..."></textarea>
+              </div>
+            </div>
+
+            <div class="sub-task" draggable="true" id="task-dev-execucao" data-flow="development">
+              <div class="task-title">Execução</div>
+              <textarea placeholder="Digite detalhes da task..."></textarea>
+              <button class="blocked-btn">🚫 Blocked</button>
+              <div class="blocked-reason">
+                <label>Motivo do bloqueio</label>
+                <textarea class="blocked-text" placeholder="Explique por que esta task está bloqueada..."></textarea>
+              </div>
+            </div>
+
+            <div class="sub-task" draggable="true" id="task-dev-codereview" data-flow="development">
+              <div class="task-title">Code Review</div>
+              <textarea placeholder="Digite detalhes da task..."></textarea>
+              <button class="blocked-btn">🚫 Blocked</button>
+              <div class="blocked-reason">
+                <label>Motivo do bloqueio</label>
+                <textarea class="blocked-text" placeholder="Explique por que esta task está bloqueada..."></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="sub-task-column" id="dev-doing" data-column="dev-doing">
+            <div class="sub-task-title">DOING</div>
+          </div>
+
+          <div class="sub-task-column" id="dev-done" data-column="dev-done">
+            <div class="sub-task-title">DONE</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TESTING -->
+    <div class="column">
+      <div class="column-header">
+        <div class="column-title">TESTING</div>
+        <div class="count" id="count-testing">3</div>
+      </div>
+
+      <div class="card" id="card-testing-1">
+        <div class="card-id">ID: 1</div>
+        <div class="card-title">Validação Técnica</div>
+
+        <div class="dev-board">
+          <div class="sub-task-column" id="qa-todo" data-column="qa-todo">
+            <div class="sub-task-title">TO DO</div>
+
+            <div class="sub-task" draggable="true" id="task-qa-entendimento" data-flow="testing">
+              <div class="task-title">Entendimento</div>
+              <textarea placeholder="Digite detalhes da task..."></textarea>
+              <button class="blocked-btn">🚫 Blocked</button>
+              <div class="blocked-reason">
+                <label>Motivo do bloqueio</label>
+                <textarea class="blocked-text" placeholder="Explique por que esta task está bloqueada..."></textarea>
+              </div>
+            </div>
+
+            <div class="sub-task" draggable="true" id="task-qa-planejamento" data-flow="testing">
+              <div class="task-title">Planejamento</div>
+              <textarea placeholder="Digite detalhes da task..."></textarea>
+              <button class="blocked-btn">🚫 Blocked</button>
+              <div class="blocked-reason">
+                <label>Motivo do bloqueio</label>
+                <textarea class="blocked-text" placeholder="Explique por que esta task está bloqueada..."></textarea>
+              </div>
+            </div>
+
+            <div class="sub-task" draggable="true" id="task-qa-execucao" data-flow="testing">
+              <div class="task-title">Execução</div>
+              <textarea placeholder="Digite detalhes da task..."></textarea>
+              <button class="blocked-btn">🚫 Blocked</button>
+              <div class="blocked-reason">
+                <label>Motivo do bloqueio</label>
+                <textarea class="blocked-text" placeholder="Explique por que esta task está bloqueada..."></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="sub-task-column" id="qa-doing" data-column="qa-doing">
+            <div class="sub-task-title">DOING</div>
+          </div>
+
+          <div class="sub-task-column" id="qa-done" data-column="qa-done">
+            <div class="sub-task-title">DONE</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- UAT -->
+    <div class="column">
+      <div class="column-header">
+        <div class="column-title">UAT</div>
+        <div class="count" id="count-uat">4</div>
+      </div>
+
+      <div class="card" id="card-uat-1">
+        <div class="card-id">ID: 1</div>
+        <div class="card-title">User Acceptance Test</div>
+
+        <div class="dev-board">
+          <div class="sub-task-column" id="uat-todo" data-column="uat-todo">
+            <div class="sub-task-title">TO DO</div>
+
+            <div class="sub-task" draggable="true" id="task-uat-entendimento" data-flow="uat">
+              <div class="task-title">Entendimento</div>
+              <textarea placeholder="Digite detalhes da task..."></textarea>
+              <button class="blocked-btn">🚫 Blocked</button>
+              <div class="blocked-reason">
+                <label>Motivo do bloqueio</label>
+                <textarea class="blocked-text" placeholder="Explique por que esta task está bloqueada..."></textarea>
+              </div>
+            </div>
+
+            <div class="sub-task" draggable="true" id="task-uat-agendamento" data-flow="uat">
+              <div class="task-title">Agendamento</div>
+              <textarea placeholder="Digite detalhes da task..."></textarea>
+              <button class="blocked-btn">🚫 Blocked</button>
+              <div class="blocked-reason">
+                <label>Motivo do bloqueio</label>
+                <textarea class="blocked-text" placeholder="Explique por que esta task está bloqueada..."></textarea>
+              </div>
+            </div>
+
+            <div class="sub-task" draggable="true" id="task-uat-execucao" data-flow="uat">
+              <div class="task-title">Execução</div>
+              <textarea placeholder="Digite detalhes da task..."></textarea>
+              <button class="blocked-btn">🚫 Blocked</button>
+              <div class="blocked-reason">
+                <label>Motivo do bloqueio</label>
+                <textarea class="blocked-text" placeholder="Explique por que esta task está bloqueada..."></textarea>
+              </div>
+            </div>
+
+            <div class="sub-task" draggable="true" id="task-uat-feedback" data-flow="uat">
+              <div class="task-title">Feedback</div>
+              <textarea placeholder="Digite detalhes da task..."></textarea>
+              <button class="blocked-btn">🚫 Blocked</button>
+              <div class="blocked-reason">
+                <label>Motivo do bloqueio</label>
+                <textarea class="blocked-text" placeholder="Explique por que esta task está bloqueada..."></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="sub-task-column" id="uat-doing" data-column="uat-doing">
+            <div class="sub-task-title">DOING</div>
+          </div>
+
+          <div class="sub-task-column" id="uat-done" data-column="uat-done">
+            <div class="sub-task-title">DONE</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DEPLOY -->
+    <div class="column">
+      <div class="column-header">
+        <div class="column-title">DEPLOY</div>
+        <div class="count" id="count-deploy">5</div>
+      </div>
+
+      <div class="card" id="card-deploy-1">
+        <div class="card-id">ID: 1</div>
+        <div class="card-title">Deployment</div>
+
+        <div class="dev-board">
+          <div class="sub-task-column" id="deploy-todo" data-column="deploy-todo">
+            <div class="sub-task-title">TO DO</div>
+
+            <div class="sub-task" draggable="true" id="task-deploy-agendamento" data-flow="deploy">
+              <div class="task-title">Agendamento</div>
+              <textarea placeholder="Digite detalhes da task..."></textarea>
+              <button class="blocked-btn">🚫 Blocked</button>
+              <div class="blocked-reason">
+                <label>Motivo do bloqueio</label>
+                <textarea class="blocked-text" placeholder="Explique por que esta task está bloqueada..."></textarea>
+              </div>
+            </div>
+
+            <div class="sub-task" draggable="true" id="task-deploy-execucao" data-flow="deploy">
+              <div class="task-title">Execução</div>
+              <textarea placeholder="Digite detalhes da task..."></textarea>
+              <button class="blocked-btn">🚫 Blocked</button>
+              <div class="blocked-reason">
+                <label>Motivo do bloqueio</label>
+                <textarea class="blocked-text" placeholder="Explique por que esta task está bloqueada..."></textarea>
+              </div>
+            </div>
+
+            <div class="sub-task" draggable="true" id="task-deploy-monitoramento" data-flow="deploy">
+              <div class="task-title">Monitoramento</div>
+              <textarea placeholder="Digite detalhes da task..."></textarea>
+              <button class="blocked-btn">🚫 Blocked</button>
+              <div class="blocked-reason">
+                <label>Motivo do bloqueio</label>
+                <textarea class="blocked-text" placeholder="Explique por que esta task está bloqueada..."></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="sub-task-column" id="deploy-doing" data-column="deploy-doing">
+            <div class="sub-task-title">DOING</div>
+          </div>
+
+          <div class="sub-task-column" id="deploy-done" data-column="deploy-done">
+            <div class="sub-task-title">DONE</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

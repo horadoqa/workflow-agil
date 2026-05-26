@@ -35,16 +35,7 @@ Possíveis status:
 
 --------------------------------------------------
 
-## 3 - READY FOR QA
-
-Quando:
-- Desenvolvimento concluído
-- Merge realizado
-- Ambiente disponível para testes
-
---------------------------------------------------
-
-## 4 - IN QA
+## 3 - IN QA
 
 Tasks:
 - Entendimento
@@ -60,7 +51,7 @@ Resultado:
 
 --------------------------------------------------
 
-## 5 - UAT (User Acceptance Test)
+## 4 - UAT (User Acceptance Test)
 
 Quando o item precisa ser validado por:
 - Cliente
@@ -81,7 +72,7 @@ Resultado:
 
 --------------------------------------------------
 
-## 6 - READY FOR DEPLOY
+## 5 - READY FOR DEPLOY
 
 Quando:
 - DEV aprovou
