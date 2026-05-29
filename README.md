@@ -44,6 +44,7 @@ Tasks:
 
 Resultado:
 - QA Failed
+
     └── Retorna para IN DEVELOPMENT (Rework/Bug Fix)
 - Retest
 - QA Approved
@@ -66,6 +67,7 @@ Objetivo:
 
 Resultado:
 - UAT Failed
+
     └── Retorna para IN DEVELOPMENT
 
 - UAT Approved

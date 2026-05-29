@@ -132,5 +132,3 @@ Abaixo estão **regras de negócio bem estruturadas e realistas** para a criaç�
 * Dados pessoais devem ser minimizados e protegidos.
 
 ---
-
-
